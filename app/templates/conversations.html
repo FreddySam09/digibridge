@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Conversations{% endblock %}
+
+{% block content %}
+<h1>Your Conversations</h1>
+<h2>User Conversations:</h2>
+<ul>
+  {% for conversation in user_conversations %}
+    <li><a href="{{ url_for('view_conversation', conversation_id=conversation.id) }}">Conversation with {{ conversation.staff.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>Staff Conversations:</h2>
+<ul>
+  {% for conversation in staff_conversations %}
+    <li><a href="{{ url_for('view_conversation', conversation_id=conversation.id) }}">Conversation with {{ conversation.user.name }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

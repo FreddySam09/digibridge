@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Select a Date{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Select a Date for Pre-Booking</h2>
+  <div class="row">
+    {% for date in dates %}
+    <div class="col-md-3">
+      <a class="btn btn-dark btn-lg btn-block" href="{{ url_for('pre_booking_slots', selected_date=date) }}" role="button">{{ date }}</a>
+      <br>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

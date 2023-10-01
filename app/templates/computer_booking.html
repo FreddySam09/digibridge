@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Computer Booking{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h2>Computer Booking for {{ slot }}</h2>
+  </div>
+  <div class="card-body">
+    <form method="POST">
+      <div class="form-group">
+        <label for="computer">Select a computer:</label>
+        <select class="form-control" id="computer" name="computer">
+          <option value="System 1">System 1</option>
+          <option value="System 2">System 2</option>
+          <option value="System 3">System 3</option>
+          <option value="System 4">System 4</option>
+          <option value="System 5">System 5</option>
+          <option value="System 6">System 6</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark">Book Computer</button>
+      </div>
+    </form>
+    
+    <h3>Computer Availability:</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Computer</th>
+          <th>Status</th>
+          <th>Booked By</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for computer_info in available_computers %}
+        <tr>
+          <td>{{ computer_info.name }}</td>
+          <td>
+            {% if computer_info.is_available %}
+              <span class="text-success">Available</span>
+            {% else %}
+              <span class="text-danger">Booked</span>
+            {% endif %}
+          </td>
+          <td>
+            {% if not computer_info.is_available %}
+              {{ computer_info.booked_by }}
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

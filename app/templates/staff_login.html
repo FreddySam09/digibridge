@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Staff Login{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h2>Staff Login</h2>
+  </div>
+  <div class="card-body">
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.email.label() }}
+        {{ form.email(class="form-control") }}
+      </div>
+      <div class="form-group">
+        {{ form.password.label() }}
+        {{ form.password(class="form-control") }}
+      </div>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-dark") }}
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

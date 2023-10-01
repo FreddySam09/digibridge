@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Digital and Connected Learning.</h1>
+  <p class="lead">You are logged in as: {{ current_user.name }}</p>
+  <hr class="my-4">
+  <p>Choose an option:</p>
+  {% if current_user.is_authenticated %}
+  <a class="btn btn-dark btn-lg" href="{{ url_for('pre_booking') }}" role="button">Pre Booking</a>
+  <a class="btn btn-dark btn-lg" href="{{ url_for('help') }}" role="button">Collaborative Help</a>
+  <a class="btn btn-dark btn-lg" href="{{ url_for('course_list') }}" role="button">Take Course</a>
+  
+  <!-- Add Professional Help Button -->
+  <a class="btn btn-dark btn-lg" href="{{ url_for('professional_help') }}" role="button">Professional Help</a>
+  
+  {% endif %}
+</div>
+{% endblock %}

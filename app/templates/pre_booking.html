@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Pre Booking{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h2>Pre Booking</h2>
+  </div>
+  <div class="card-body">
+    <form method="POST">
+      <div class="form-group">
+        <label for="slot">Select a slot:</label>
+        <select class="form-control" id="slot" name="slot">
+          {% for slot, timing in slot_timings.items() %}
+          <option value="{{ slot }}" {% if booked_computers[slot] and current_user.name in booked_computers[slot] and selected_date == selected_date_param %} disabled {% endif %}>
+              {{ slot }} - {{ timing }}{% if booked_computers[slot] and current_user.name in booked_computers[slot] and selected_date == selected_date_param %}
+              (Booked for Computer system {{ booked_computers[slot][current_user.name] }} of {{ selected_date_param }} by {{ current_user.name }}){% endif %}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark">Book Computer</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Courses</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <img src="{{ '/static/differential_equations.jpg' }}" class="card-img-top" alt="Course Thumbnail">
+        <div class="card-body">
+          <h5 class="card-title">Differential Equations</h5>
+          <p class="card-text">Subject: Maths</p>
+          <p class="card-text">Staff: Mr. S. Subramanian</p>
+          <a href="{{ url_for('math', course_id=1) }}" class="btn btn-dark">Take Course</a>
+          <a href="{{ 'https://www.khanacademy.org/math/ap-calculus-ab/ab-differential-equations-new/ab-7-4/quiz/ab-differential-equations-new-quiz-1' }}" class="btn btn-danger">Take Test</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <img src="{{ '/static/organic_chemistry.jpg' }}" class="card-img-top" alt="Course Thumbnail">
+        <div class="card-body">
+          <h5 class="card-title">Organic Chemistry</h5>
+          <p class="card-text">Subject: Chemistry</p>
+          <p class="card-text">Staff: Mr. T. Palani</p>
+          <a href="{{ url_for('chem', course_id=2) }}" class="btn btn-dark">Take Course</a>
+          <a href="{{ 'https://www.khanacademy.org/science/organic-chemistry-essentials-class-12/xbd7054f15706a8f5:let-s-test-what-we-learnt/xbd7054f15706a8f5:time-to-test-what-we-learnt/e/organic-chemistry-test-5' }}" class="btn btn-danger">Take Test</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <img src="{{ '/static/excel.png' }}" class="card-img-top" alt="Course Thumbnail">
+        <div class="card-body">
+          <h5 class="card-title">An Introduction to Excel</h5>
+          <p class="card-text">Subject: Computer Science</p>
+          <p class="card-text">Staff: Mr. S. Ranjith</p>
+          <a href="{{ url_for('excel', course_id=3) }}" class="btn btn-dark">Take Course</a>
+          <a href="{{ 'https://edu.gcfglobal.org/en/excel/excel-quiz/1/' }}" class="btn btn-danger">Take Test</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <img src="{{ '/static/ppt.jpg' }}" class="card-img-top" alt="Course Thumbnail">
+        <div class="card-body">
+          <h5 class="card-title">An Introduction to Powerpoint</h5>
+          <p class="card-text">Subject: Computer Science</p>
+          <p class="card-text">Staff: Mr. S. Ranjith</p>
+          <a href="{{ url_for('ppt', course_id=3) }}" class="btn btn-dark">Take Course</a>
+          <a href="{{ 'https://edu.gcfglobal.org/en/excel/excel-quiz/1/' }}" class="btn btn-danger">Take Test</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

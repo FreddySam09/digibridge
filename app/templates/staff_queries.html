@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Staff Queries{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Student Queries</h2>
+  <ul class="list-group">
+    {% for query in queries %}
+      <li class="list-group-item">
+        <strong>From: {{ query.user.name }}</strong>
+        <p>{{ query.query_text }}</p>
+        {% if query.response_text %}
+          <hr>
+          <strong>Response:</strong>
+          <p>{{ query.response_text }}</p>
+        {% else %}
+          <form method="POST">
+            <input type="hidden" name="query_id" value="{{ query.id }}">
+            <textarea name="response" class="form-control" rows="3" placeholder="Type your response"></textarea>
+            <button type="submit" class="btn btn-dark mt-2">Send Response</button>
+          </form>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Digibridge{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <img src="/static/logo_light.png" alt="Logo" style="width: 420px; height: 155px; margin-bottom: 2px;">
+  <p class="lead">Choose an option:</p>
+  
+  <!-- User Signup and Login Buttons -->
+  {% if not current_user.is_authenticated %}
+    <a class="btn btn-dark btn-lg" href="{{ url_for('signup') }}" role="button">User Sign Up</a>
+    <a class="btn btn-dark btn-lg" href="{{ url_for('login') }}" role="button">User Login</a>
+    <br><br>
+  {% endif %}
+  
+  <!-- Staff Signup and Login Buttons -->
+  {% if not current_user.is_authenticated %}
+    <a class="btn btn-dark btn-lg" href="{{ url_for('staff_signup') }}" role="button">Staff Sign Up</a>
+    <a class="btn btn-dark btn-lg" href="{{ url_for('staff_login') }}" role="button">Staff Login</a>
+    <br><br>
+  {% endif %}
+  <a class="btn btn-dark btn-lg" href="{{ url_for('about') }}" role="button">Our Mission</a>
+  <a class="btn btn-dark btn-lg" href="{{ url_for('about') }}" role="button">About Us</a>
+</div>
+
+{% endblock %}

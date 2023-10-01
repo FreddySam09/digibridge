@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Available Courses{% endblock %}
+
+{% block content %}
+<div class="container">
+  <form method="GET">
+    <div class="form-group">
+      <label for="department">Filter by Department:</label>
+      <select name="department" class="form-control">
+        <option value="">All Departments</option>
+        <option value="physics">Physics</option>
+        <option value="maths">Mathematics</option>
+        <option value="biology">Biology</option>
+        <option value="chemistry">Chemistry</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-dark">Filter</button>
+  </form>
+  <br>
+  <br>
+
+  <h2>Available Courses</h2>
+  <ul class="list-group">
+    {% for course in courses %}
+      <li class="list-group-item">
+        <h3>{{ course.title }}</h3>
+        <p>By {{ course.staff.name }}</p>
+        <p>{{ course.description }}</p>
+        <a class="btn btn-dark" href="{{ url_for('take_course', course_id=course.id) }}">Take Course</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

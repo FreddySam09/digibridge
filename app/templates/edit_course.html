@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Course{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h2>Edit Course</h2>
+  </div>
+  <div class="card-body">
+    <form method="POST" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.title.label() }}
+        {{ form.title(class="form-control") }}
+      </div>
+      <div class="form-group">
+        {{ form.description.label() }}
+        {{ form.description(class="form-control") }}
+      </div>
+      <div class="form-group">
+        {{ form.thumbnail.label() }}
+        <input type="file" name="thumbnail" class="form-control-file">
+      </div>
+      <div class="form-group">
+        {{ form.video.label() }}
+        <input type="file" name="video" class="form-control-file">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

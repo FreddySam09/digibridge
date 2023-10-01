@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Learn MS Powerpoint{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>An Introduction to MS Powerpoint</h2>
+  <p>Ranjith S</p>
+  <video controls width="640" height="360">
+    <source src="{{ '/static/excel.mp4' }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+{% endblock %}

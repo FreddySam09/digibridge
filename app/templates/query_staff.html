@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Query Staff{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Query {{ staff.name }}</h2>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.query.label() }}
+      {{ form.query(class="form-control", rows="5") }}
+    </div>
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+</div>
+{% endblock %}
+

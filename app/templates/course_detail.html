@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Course Details{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Course Details</h2>
+  <h3>{{ course.title }}</h3>
+  <p>By {{ course.staff.name }}</p>
+  <p>{{ course.description }}</p>
+  <video controls width="640" height="360">
+    <source src="../../uploads/videos/{{ course.video_filename }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+{% endblock %}

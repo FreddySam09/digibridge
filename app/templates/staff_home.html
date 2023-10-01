@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Staff Home{% endblock %}
+
+{% block content %}
+  <div class="jumbotron">
+    <!-- Check if a profile picture is available -->
+    {% if current_user.profile_picture %}
+      <img src="../{{ current_user.profile_picture }}" alt="Profile Picture" class="profile-picture">
+    {% endif %}
+    
+    <h1 class="display-4">Welcome, {{ current_user.name }}!</h1>
+    <p class="lead">You have successfully logged in as a staff member.</p>
+    <a class="btn btn-dark btn-lg" href="{{ url_for('staff_queries') }}" role="button">View Queries</a>
+    <a class="btn btn-dark btn-lg" href="{{ url_for('new_course') }}" role="button">New Course</a>
+    <a class="btn btn-dark btn-lg" href="{{ url_for('your_courses') }}" role="button">Your Courses</a>
+    
+  </div>
+{% endblock %}

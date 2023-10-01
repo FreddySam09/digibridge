@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ccf6db;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Confirmation</h1>
+        <p>Thank you for simulating the payment. Your booking is confirmed.</p>
+        <p>Booking Details:</p>
+        <ul>
+            <li>User: {{ booking.user.name }}</li>
+            <li>Computer: {{ booking.computer }}</li>
+            <li>Slot: {{ booking.slot }}</li>
+            <li>Booking Date: {{ booking.booking_date.strftime('%Y-%m-%d') }}</li>
+        </ul>
+        <p>Your payment has been successfully simulated.</p>
+        <p>Feel free to return to the <a href="{{ url_for('home') }}">Home</a> page.</p>
+    </div>
+</body>
+</html>
